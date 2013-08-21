@@ -31,7 +31,7 @@ Trader.prototype.getTrades = function(since, callback, descending) {
   var self = this;
   var args = _.toArray(arguments);
   setTimeout(function() {
-    self.bitstamp.transactions(deltatime, function(err, data) {
+    self.bitstamp.transactions({limit: deltatime}, function(err, data) {
       if(err)
         return self.retry(self.getTrades, args);
 

@@ -70,7 +70,8 @@ CandleCalculator.prototype.getHistoricalCandles = function() {
 
 CandleCalculator.prototype.addCandle = function(line) {
   line = line.split(',');
-  this.currentTimestamp = parseInt( line[0] );
+  var d=new Date(line[0].substring(0,4),parseFloat(line[0].substring(4,6))+1,line[0].substring(6,8),line[1].substring(0,2),line[1].substring(2,4),line[1].substring(4,6));
+  this.currentTimestamp = d.getTime()/1000;
 
   if(this.currentCandle > 0 && this.currentTimestamp < this.from)
     // this candle happened before the `from`, skip this candle and try again
@@ -79,10 +80,10 @@ CandleCalculator.prototype.addCandle = function(line) {
     // this candle happened after the `to`, we are done!
     return this.finish();
 
-  this.candles.open.push( parseFloat(line[1]) );
-  this.candles.high.push( parseFloat(line[2]) );
-  this.candles.low.push( parseFloat(line[3]) );
-  this.candles.close.push( parseFloat(line[4]) );
+  this.candles.open.push( parseFloat(line[2]) );
+  this.candles.high.push( parseFloat(line[3]) );
+  this.candles.low.push( parseFloat(line[4]) );
+  this.candles.close.push( parseFloat(line[5]) );
 
   this.emit('calculated candle');
 

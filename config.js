@@ -28,7 +28,7 @@ config.EMA = {
 // Monitor the live market
 config.normal = {
   enabled: true,
-  exchange: 'MtGox', // 'MtGox', 'BTCe' or 'Bitstamp'
+  exchange: 'Bitstamp', // 'MtGox', 'BTCe' or 'Bitstamp'
   currency: 'USD',
   asset: 'BTC',
   tradingEnabled: false,
@@ -97,9 +97,9 @@ config.profitCalculator = {
 //                ADVISED TO MAKE REAL WORLD DECISIONS BASED ON THE RESULTS
 //                UNTIL THE CODE HAS BEEN PROVED SOLID.
 config.backtest = {
-  candleFile: 'candles.csv',
-  from: 0,
-  to: 0
+  candleFile: '../data.csv',
+  from: 1364774400,
+  to: 1396310400
 }
 
 // For when you want to monitor a market but want to act (trade) on a different one
@@ -109,7 +109,7 @@ config.backtest = {
 
 // monitor what market?
 config.watch = {
-  exchange: 'MtGox',
+  exchange: 'Bitstamp',
   currency: 'USD',
   asset: 'BTC'
 }

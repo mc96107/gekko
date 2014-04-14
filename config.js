@@ -98,8 +98,8 @@ config.profitCalculator = {
 //                UNTIL THE CODE HAS BEEN PROVED SOLID.
 config.backtest = {
   candleFile: '../data.csv',
-  from: 1364774400,
-  to: 1396310400
+  from: 1388534400,
+  to: 1397433600
 }
 
 // For when you want to monitor a market but want to act (trade) on a different one

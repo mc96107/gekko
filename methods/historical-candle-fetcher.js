@@ -70,7 +70,7 @@ CandleCalculator.prototype.getHistoricalCandles = function() {
 
 CandleCalculator.prototype.addCandle = function(line) {
   line = line.split(',');
-  var d=new Date(line[0].substring(0,4),parseFloat(line[0].substring(4,6))+1,line[0].substring(6,8),line[1].substring(0,2),line[1].substring(2,4),line[1].substring(4,6));
+  var d=new Date(line[0].substring(0,4),parseFloat(line[0].substring(4,6))-1,line[0].substring(6,8),line[1].substring(0,2),line[1].substring(2,4),line[1].substring(4,6));
   this.currentTimestamp = d.getTime()/1000;
 
   if(this.currentCandle > 0 && this.currentTimestamp < this.from)
